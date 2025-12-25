@@ -47,3 +47,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 © 2024 Dire Dawa City Administration. All rights reserved.
+
+---
+*Last updated: December 25, 2024*
