@@ -1,4 +1,4 @@
-// Enhanced Navigation functionality
+// Enhanced Responsive Navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile navigation toggle with corrected structure
+    // Responsive Mobile navigation toggle
     const hamburger = document.querySelector('.hamburger');
     const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
     const mobileNavClose = document.querySelector('.mobile-nav-close');
@@ -71,6 +71,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Close menu when window is resized to desktop size
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+            closeMobileMenu();
+        }
+    });
+
     // Update active navigation link
     function updateActiveNavLink(href) {
         // Update desktop navigation
@@ -111,11 +118,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Enhanced navbar scroll behavior - only for active section updates
+    // Enhanced navbar scroll behavior
     let ticking = false;
     
     function updateNavbar() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const navbar = document.querySelector('.navbar');
+        
+        // Add scrolled class for styling
+        if (scrollTop > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
         
         // Update active section in navigation
         updateActiveSection();
