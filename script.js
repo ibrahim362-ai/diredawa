@@ -17,25 +17,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile navigation toggle with full-screen overlay
+    // Mobile navigation toggle with corrected structure
     const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
     const mobileNavClose = document.querySelector('.mobile-nav-close');
     const body = document.body;
 
     function openMobileMenu() {
         hamburger.classList.add('active');
-        navMenu.classList.add('active');
+        mobileNavOverlay.classList.add('active');
         body.style.overflow = 'hidden'; // Prevent background scrolling
     }
 
     function closeMobileMenu() {
         hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        mobileNavOverlay.classList.remove('active');
         body.style.overflow = ''; // Restore scrolling
     }
 
-    if (hamburger && navMenu) {
+    if (hamburger && mobileNavOverlay) {
         hamburger.addEventListener('click', () => {
             const isActive = hamburger.classList.contains('active');
             
@@ -52,20 +52,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
 
-        // Close menu when clicking outside (on the overlay)
-        navMenu.addEventListener('click', (e) => {
-            if (e.target === navMenu) {
+        // Close menu when clicking outside (on the overlay background)
+        mobileNavOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileNavOverlay) {
                 closeMobileMenu();
             }
         });
 
         // Close menu with Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            if (e.key === 'Escape' && mobileNavOverlay.classList.contains('active')) {
                 closeMobileMenu();
             }
         });
