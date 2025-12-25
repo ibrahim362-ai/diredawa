@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -22,13 +23,47 @@
                     <span class="logo-sub">Administration</span>
                 </div>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active" data-translate="nav.home">Home</a></li>
-                <li><a href="#overview" class="nav-link" data-translate="nav.overview">Overview</a></li>
-                <li><a href="#administration" class="nav-link" data-translate="nav.administration">Administration</a></li>
-                <li><a href="#economy" class="nav-link" data-translate="nav.economy">Economy</a></li>
-                <li><a href="#education" class="nav-link" data-translate="nav.education">Education</a></li>
-                <li><a href="#contact" class="nav-link" data-translate="nav.contact">Contact</a></li>
+            <ul class="nav-menu space-nav">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active" data-translate="nav.home" title="Home">
+                        <div class="nav-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#overview" class="nav-link" data-translate="nav.overview" title="Overview">
+                        <div class="nav-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <span class="nav-text">Overview</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#administration" class="nav-link" data-translate="nav.administration" title="Administration">
+                        <div class="nav-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <span class="nav-text">Admin</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#economy" class="nav-link" data-translate="nav.economy" title="Economy">
+                        <div class="nav-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="nav-text">Economy</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#education" class="nav-link" data-translate="nav.education" title="Education">
+                        <div class="nav-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <span class="nav-text">Education</span>
+                    </a>
+                </li>
             </ul>
             
             <!-- Mobile Navigation Overlay -->
@@ -50,12 +85,11 @@
                 
                 <div class="mobile-nav-content">
                     <nav class="mobile-nav-links">
-                        <a href="#home" class="mobile-nav-link active" data-translate="nav.home">Home</a>
-                        <a href="#overview" class="mobile-nav-link" data-translate="nav.overview">Overview</a>
-                        <a href="#administration" class="mobile-nav-link" data-translate="nav.administration">Administration</a>
-                        <a href="#economy" class="mobile-nav-link" data-translate="nav.economy">Economy</a>
-                        <a href="#education" class="mobile-nav-link" data-translate="nav.education">Education</a>
-                        <a href="#contact" class="mobile-nav-link" data-translate="nav.contact">Contact</a>
+                        <a href="#home" class="mobile-nav-link active" data-translate="nav.home"><i class="fas fa-home"></i>Home</a>
+                        <a href="#overview" class="mobile-nav-link" data-translate="nav.overview"><i class="fas fa-eye"></i>Overview</a>
+                        <a href="#administration" class="mobile-nav-link" data-translate="nav.administration"><i class="fas fa-building"></i>Administration</a>
+                        <a href="#economy" class="mobile-nav-link" data-translate="nav.economy"><i class="fas fa-chart-line"></i>Economy</a>
+                        <a href="#education" class="mobile-nav-link" data-translate="nav.education"><i class="fas fa-graduation-cap"></i>Education</a>
                     </nav>
                     
                     <div class="mobile-language-selector">
