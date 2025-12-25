@@ -17,14 +17,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile navigation toggle
+    // Mobile navigation toggle with full-screen overlay
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            const isActive = hamburger.classList.contains('active');
+            
+            if (!isActive) {
+                // Opening menu
+                hamburger.classList.add('active');
+                navMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                // Closing menu
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = ''; // Restore scrolling
+            }
         });
 
         // Close mobile menu when clicking on a link
@@ -32,7 +44,26 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                body.style.overflow = ''; // Restore scrolling
             });
+        });
+
+        // Close menu when clicking outside (on the overlay)
+        navMenu.addEventListener('click', (e) => {
+            if (e.target === navMenu) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = ''; // Restore scrolling
+            }
+        });
+
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = ''; // Restore scrolling
+            }
         });
     }
 
