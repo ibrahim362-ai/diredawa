@@ -20,49 +20,53 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile navigation toggle with full-screen overlay
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const mobileNavClose = document.querySelector('.mobile-nav-close');
     const body = document.body;
+
+    function openMobileMenu() {
+        hamburger.classList.add('active');
+        navMenu.classList.add('active');
+        body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeMobileMenu() {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.style.overflow = ''; // Restore scrolling
+    }
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             const isActive = hamburger.classList.contains('active');
             
             if (!isActive) {
-                // Opening menu
-                hamburger.classList.add('active');
-                navMenu.classList.add('active');
-                body.style.overflow = 'hidden'; // Prevent background scrolling
+                openMobileMenu();
             } else {
-                // Closing menu
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                body.style.overflow = ''; // Restore scrolling
+                closeMobileMenu();
             }
         });
 
+        // Close button functionality
+        if (mobileNavClose) {
+            mobileNavClose.addEventListener('click', closeMobileMenu);
+        }
+
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                body.style.overflow = ''; // Restore scrolling
-            });
+            link.addEventListener('click', closeMobileMenu);
         });
 
         // Close menu when clicking outside (on the overlay)
         navMenu.addEventListener('click', (e) => {
             if (e.target === navMenu) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                body.style.overflow = ''; // Restore scrolling
+                closeMobileMenu();
             }
         });
 
         // Close menu with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                body.style.overflow = ''; // Restore scrolling
+                closeMobileMenu();
             }
         });
     }
