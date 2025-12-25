@@ -73,13 +73,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update active navigation link
     function updateActiveNavLink(href) {
+        // Update desktop navigation
         document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active');
         });
         
-        const activeLink = document.querySelector(`a[href="${href}"]`);
-        if (activeLink) {
-            activeLink.classList.add('active');
+        // Update mobile navigation
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Set active for both desktop and mobile
+        const activeDesktopLink = document.querySelector(`.nav-link[href="${href}"]`);
+        const activeMobileLink = document.querySelector(`.mobile-nav-link[href="${href}"]`);
+        
+        if (activeDesktopLink) {
+            activeDesktopLink.classList.add('active');
+        }
+        if (activeMobileLink) {
+            activeMobileLink.classList.add('active');
         }
     }
 
@@ -317,40 +329,6 @@ style.textContent = `
         transition: opacity 0.8s ease, transform 0.8s ease;
     }
     
-    .section.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .nav-menu.active {
-        display: flex;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-    
-    @media (max-width: 768px) {
-        .nav-menu {
-            display: none;
-        }
-    }
 `;
 
 document.head.appendChild(style);
